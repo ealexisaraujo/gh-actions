@@ -2,12 +2,16 @@ name: Shell Commands
 
 on: [push, ]
 
+env:
+  ACTIONS_RUNNER_DEBUG: '${{ secrets.ACTIONS_RUNNER_DEBUG }}'
+  ACTIONS_STEP_DEBUG: '${{ secrets.ACTIONS_RUNNER_DEBUG }}'
+
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
     steps: 
       - name: echo a string
-        run: eccho "Hello World"
+        run: echo "Hello World"
       - name: multiline script
         run: |
             node -v
